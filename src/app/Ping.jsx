@@ -5,7 +5,7 @@ export default class Ping extends React.Component{
   constructor() {
     super()
     this.handlePingClick = this.handlePingClick.bind(this)
-    this.state = {counter: 0}
+    this.state = { counter: 0 }
   }
   componentDidMount() {
     const ws = new WebSocket('ws://localhost:4000/ws')
@@ -14,7 +14,7 @@ export default class Ping extends React.Component{
     }
     ws.onmessage = (evt) => {
       const data = JSON.parse(evt.data)
-      if (data.event === 'pong') {
+      if (data.event === 'Pong') {
         this.setState({ counter: data.counter })
       }
     }
