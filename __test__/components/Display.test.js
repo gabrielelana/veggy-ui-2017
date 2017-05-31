@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer';
-import Display from '../../src/app/main/Display'
+import Display from '../../src/app/main/components/Display'
 
 describe('<Display />', () => {
   
