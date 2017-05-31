@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom'
-import MainContainer from './main'
 import ws from '../redux/webSocketStream.js'
+import Main from './main'
 
+require('../sass/style.scss')
 ws.connect()
 
-ReactDOM.render(<MainContainer />, document.getElementById('app'))
+ReactDOM.render(<Main />, document.getElementById('app'))

@@ -18,6 +18,19 @@ exports[`<Controls /> with default props 1`] = `
       >
         Start
       </button>
+      <button
+        className="button is-danger is-large"
+        disabled={true}
+        id="squashButton"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+      >
+        Squash
+      </button>
     </div>
   </div>
 </div>
@@ -40,6 +53,19 @@ exports[`<Controls /> with startDisabled 1`] = `
         onClick={[Function]}
       >
         Start
+      </button>
+      <button
+        className="button is-danger is-large"
+        disabled={true}
+        id="squashButton"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+      >
+        Squash
       </button>
     </div>
   </div>
