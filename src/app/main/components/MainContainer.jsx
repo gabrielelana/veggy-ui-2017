@@ -3,7 +3,10 @@ import MessageBar from '../../MessageBar'
 import Display from './Display'
 import Controls from './Controls'
 import timerActions from '../actions/timerActions'
+import resumeActions from '../actions/resumeActions'
+import usersActions from '../actions/usersActions'
 import NavBar from '../../NavBar'
+import LoginModal from './LoginModal'
 import DescriptionModal from './DescriptionModal'
 import dispatcher from '../../../redux/dispatcher'
 import * as Action from '../action'
@@ -11,10 +14,14 @@ import * as Action from '../action'
 class MainContainer extends React.Component {
   constructor(props){
     super(props)
+    this.handleLogin = this.handleLogin.bind(this)
     this.handleCancelStart = this.handleCancelStart.bind(this)
     this.handleStart = this.handleStart.bind(this)
     this.handleStartRequest = this.handleStartRequest.bind(this)
     this.handleSquash = this.handleSquash.bind(this)
+  }
+  componentWillMount() {
+    resumeActions.wireup()
   }
   handleStart(description) {
     timerActions.startPomodoro(this.props.timer_id, this.props.users, description)
@@ -25,6 +32,12 @@ class MainContainer extends React.Component {
   handleSquash() {
     timerActions.squash(this.props.timer_id, this.props.pomodoro_id, this.props.is_shared)
   }
+  handleToggleUser(user) {
+    usersActions.toggleSelectedUsers(user)
+  }
+  handleLogin(username) {
+    usersActions.login(username)
+  }
   handleCancelStart() {
     dispatcher.dispatch({type: Action.StartCanceled, payload: {}})
   }
@@ -32,6 +45,7 @@ class MainContainer extends React.Component {
     return (
       <div>
         <DescriptionModal isActive={this.props.need_description} onStart={this.handleStart} onCancel={this.handleCancelStart} />
+        <LoginModal isActive={this.props.need_login} onLogin={this.handleLogin} waiting={this.props.waiting_for_login}/>
         <NavBar username={this.props.username} />
         <div className="container" style={{marginTop: '20px'}}>
           <div className="columns">

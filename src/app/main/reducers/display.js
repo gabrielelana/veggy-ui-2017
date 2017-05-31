@@ -9,5 +9,10 @@ export default buildReducer({
   [Action.PomodoroSquashed]: () => ({time: stringifyTime(settings.duration)}),
   [Action.PomodoroVoided]: () => ({time: stringifyTime(settings.duration)}),
   [Action.UpdateTimer]: (state, action) => ({time: stringifyTime(action.payload.time)}),
+  [Action.ResumeTimer]: (state, action) => ({
+    time: stringifyTime(action.payload.time), 
+    timer_id: action.payload.timer_id,
+    pomodoro_id: action.payload.pomodoro_id
+  })
 })
 
