@@ -1,10 +1,4 @@
 import ReactDOM from 'react-dom'
-import { Component } from 'react'
+import Ping from './Ping'
 
-class App extends Component {
-  render() {
-    return <div>Hello!</div>
-  }
-}
-
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<Ping />, document.getElementById('app'))
