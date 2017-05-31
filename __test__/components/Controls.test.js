@@ -15,8 +15,18 @@ describe('<Controls />', () => {
     expect(component.toJSON()).toMatchSnapshot()
   })
 
+  test('with squashDisabled', () => {
+    const component = renderer.create(<Controls squashDisabled />)
+    expect(component.toJSON()).toMatchSnapshot()
+  })
+
   it('When start is clicked onStart callback should be called', (done) => {
     const component = shallow(<Controls onStart={() => { done() }} />)
     component.find('#startButton').simulate('click')
+  })
+
+  it('When squash is clicked onSquash callback should be called', (done) => {
+    const component = shallow(<Controls squashDisabled={false} onSquash={() => { done() }} />)
+    component.find('#squashButton').simulate('click')
   })
 })

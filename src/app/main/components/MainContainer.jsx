@@ -3,6 +3,7 @@ import MessageBar from '../../MessageBar'
 import Display from './Display'
 import Controls from './Controls'
 import TaskList from './TaskList'
+import UserList from './UserList'
 import timerActions from '../actions/timerActions'
 import resumeActions from '../actions/resumeActions'
 import usersActions from '../actions/usersActions'
@@ -20,6 +21,7 @@ class MainContainer extends React.Component {
     this.handleStart = this.handleStart.bind(this)
     this.handleStartRequest = this.handleStartRequest.bind(this)
     this.handleSquash = this.handleSquash.bind(this)
+    this.handleToggleUser = this.handleToggleUser.bind(this)
   }
   componentWillMount() {
     resumeActions.wireup()
@@ -59,6 +61,7 @@ class MainContainer extends React.Component {
           </div>
           <div className="columns">
             <TaskList timers={this.props.timers}/>
+            <UserList users={this.props.users} onToggleUser={this.handleToggleUser} />
           </div>
           <div className="columns">
             <MessageBar message={this.props.message} type={this.props.message_type} />

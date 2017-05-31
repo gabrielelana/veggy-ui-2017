@@ -36,6 +36,42 @@ exports[`<Controls /> with default props 1`] = `
 </div>
 `;
 
+exports[`<Controls /> with squashDisabled 1`] = `
+<div
+  className="column"
+>
+  <div
+    className="box"
+  >
+    <div
+      className="block"
+    >
+      <button
+        className="button is-primary is-large"
+        disabled={false}
+        id="startButton"
+        onClick={[Function]}
+      >
+        Start
+      </button>
+      <button
+        className="button is-danger is-large"
+        disabled={true}
+        id="squashButton"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+      >
+        Squash
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Controls /> with startDisabled 1`] = `
 <div
   className="column"
