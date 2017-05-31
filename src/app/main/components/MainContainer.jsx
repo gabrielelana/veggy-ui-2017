@@ -2,6 +2,7 @@ import React from 'react'
 import MessageBar from '../../MessageBar'
 import Display from './Display'
 import Controls from './Controls'
+import TaskList from './TaskList'
 import timerActions from '../actions/timerActions'
 import resumeActions from '../actions/resumeActions'
 import usersActions from '../actions/usersActions'
@@ -55,6 +56,9 @@ class MainContainer extends React.Component {
               squashDisabled={this.props.squash_disabled} 
               onStart={this.handleStartRequest} 
               onSquash={this.handleSquash} />
+          </div>
+          <div className="columns">
+            <TaskList timers={this.props.timers}/>
           </div>
           <div className="columns">
             <MessageBar message={this.props.message} type={this.props.message_type} />

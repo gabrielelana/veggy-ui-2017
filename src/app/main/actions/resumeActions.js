@@ -5,6 +5,7 @@ import dispatcher from '../../../redux/dispatcher'
 import ws from '../../../redux/webSocketStream'
 import pomodoroTicker from './pomodoroTicker'
 import * as Action from '../action'
+import {getTimers} from './loaders'
 
 function getElapsed(time) {
   const startedAt = moment(time)
@@ -34,7 +35,7 @@ const resumeActions = {
     if (window.localStorage.getItem('veggy')) {
       const user = JSON.parse(window.localStorage.getItem('veggy'))
       ws.sendCommand(`login:${user.username}`)
-      resumeTimer(user).then(() => dispatcher.dispatch({type: Action.Init, payload: user}))      
+      Promise.all([ getTimers(user), resumeTimer(user)]).then(() => dispatcher.dispatch({type: Action.Init, payload: user}))      
     } else {
       dispatcher.dispatch({type: Action.NeedLogin, payload: {}})
     }
