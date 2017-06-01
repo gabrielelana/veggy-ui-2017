@@ -23,8 +23,9 @@ describe('Timers reducer', () => {
 
   it('PomodoroStarted should add the pomodoro to the list', () => {
     const initialState = {timers: [], users: [{timer_id: '1', username: 'ema'}, {timer_id: '2', username: 'gabriele'}]}
-    const state = timers(initialState, {type: Action.PomodoroStarted, payload: {pomodoro_id: '123'}})
+    const state = timers(initialState, {type: Action.PomodoroStarted, payload: {pomodoro_id: '123', shared_with: ['2'] }})
     expect(1).toEqual(state.timers.length)
+    expect(['gabriele']).toEqual(state.timers[0].shared_with)
   })
 
   it('PomodoroCompleted should change the status of the pomodoro', () => {

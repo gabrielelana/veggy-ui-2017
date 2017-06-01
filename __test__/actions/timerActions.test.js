@@ -26,4 +26,16 @@ describe('timerActions', () => {
     expect(request.isDone()).toBe(true)
   })
 
+  test('startPomodoro with users should send a StartSharedPomodoro command', () => {
+    const request = nock('http://localhost:4000')
+                    .post('/commands', {
+                      command: 'StartSharedPomodoro',
+                      duration: /\d+/,  
+                      timer_id: '123',
+                      shared_with: ['456', '789']
+                    }).reply(201, { });   
+
+    timerActions.startPomodoro('123', [{timer_id:'456', selected: true}, {timer_id:'789', selected: true}])
+    expect(request.isDone()).toBe(true)
+  })
 })
