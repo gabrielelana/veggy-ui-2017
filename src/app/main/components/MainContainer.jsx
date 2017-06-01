@@ -28,7 +28,7 @@ class MainContainer extends React.Component {
         <DescriptionModal isActive={this.props.need_description} onStart={this.handleStart} onCancel={this.handleCancelStart} />
         <div className="container" style={{marginTop: '20px'}}>
           <div className="columns">
-            <Display time={this.props.time} is_shared={this.props.is_shared} />
+            <Display time={this.props.time} />
             <Controls startDisabled={this.props.start_disabled} 
               onStart={this.handleStartRequest} />
           </div>
