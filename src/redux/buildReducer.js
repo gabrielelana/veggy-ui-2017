@@ -4,7 +4,7 @@ const createReducer = (reducer, projectorFn = s => s) => {
 }
 
 const buildReducer = function(mapOrFn, projectorFn = s => s){
-  if (typeof(mapOrFn) === 'function'){
+  if (typeof(mapOrFn) === 'function') {
     return createReducer(mapOrFn, projectorFn)
   } 
   const reducer = function(state, action) {
