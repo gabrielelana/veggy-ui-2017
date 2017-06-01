@@ -1,8 +1,5 @@
-import R from 'ramda'
 import buildReducer from '../../../redux/buildReducer'
 import * as Action from '../action'
-
-const findShares = (users, shared_with) => R.compose(R.map(u => u.username), R.filter(u => R.contains(u.timer_id, shared_with)))(users)
 
 export default buildReducer({
   [Action.TimersLoaded]: (state, action) => { 
@@ -12,7 +9,6 @@ export default buildReducer({
           id: t.pomodoro_id, 
           status: t.status, 
           startedAt: t.started_at,
-          shared_with: findShares(state.users||[], t.shared_with),
           description: t.description
         }
       })
@@ -25,7 +21,6 @@ export default buildReducer({
         description: action.payload.description,
         status: 'started', 
         startedAt: new Date(),
-        shared_with: findShares(state.users, action.payload.shared_with)
       }]
     }
   },

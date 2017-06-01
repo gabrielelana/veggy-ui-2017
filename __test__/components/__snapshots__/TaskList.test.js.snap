@@ -15,9 +15,6 @@ exports[`<TaskList /> should display the tasks 1`] = `
         <th>
           Description
         </th>
-        <th>
-          Shared
-        </th>
         <th
           className="centered"
         >
@@ -30,7 +27,6 @@ exports[`<TaskList /> should display the tasks 1`] = `
         <td>
           09-04-2010 11:10:00
         </td>
-        <td />
         <td />
         <td
           className="centered"
@@ -48,7 +44,6 @@ exports[`<TaskList /> should display the tasks 1`] = `
         <td>
           11-04-2010 10:20:00
         </td>
-        <td />
         <td />
         <td
           className="centered"

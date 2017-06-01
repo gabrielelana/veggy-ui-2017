@@ -10,12 +10,6 @@ describe('Display reducers', () => {
     expect(state.pomodoro_id).toBe('456')
   })
 
-  test('PomodoroStarted shared wtesth others, is_shared should be true', () => {
-    const actionPayload = { timer_id: '123', pomodoro_id: '456', shared_with: ['foo']}
-    const state = display({}, {type: Action.PomodoroStarted, payload: actionPayload})
-    expect(state.is_shared).toBeTruthy()
-  })
-
   test('PomodoroCompleted should reset time', () => {
     const state = display({}, {type: Action.PomodoroCompleted, payload: {}})
     expect('25:00').toBe(state.time)
