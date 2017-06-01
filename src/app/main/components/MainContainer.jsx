@@ -31,7 +31,7 @@ class MainContainer extends React.Component {
     dispatcher.dispatch({type: Action.StartRequested, payload: {}})
   }
   handleSquash() {
-    timerActions.squash(this.props.timer_id, this.props.pomodoro_id, this.props.is_shared)
+    timerActions.squash(this.props.timer_id, this.props.pomodoro_id)
   }
   handleToggleUser(user) {
     usersActions.toggleSelectedUsers(user)
@@ -50,7 +50,7 @@ class MainContainer extends React.Component {
         <NavBar username={this.props.username} />
         <div className="container" style={{marginTop: '20px'}}>
           <div className="columns">
-            <Display time={this.props.time} is_shared={this.props.is_shared} />
+            <Display time={this.props.time} />
             <Controls 
               startDisabled={this.props.start_disabled} 
               squashDisabled={this.props.squash_disabled} 
