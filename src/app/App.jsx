@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom'
-import Hello from './Hello'
+import Ping from './Ping'
 
-ReactDOM.render(<Hello />, document.getElementById('app'))
+ReactDOM.render(<Ping />, document.getElementById('app'))
