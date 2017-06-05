@@ -59,10 +59,10 @@ function sendOfflineCommands() {
     .forEach(cmd => {
       const squashCommand = R.find(c => c.command === 'SquashPomodoro' && c.pomodoro_id === cmd.pomodoro_id)(offlineCommands)
       if (squashCommand){
-        sendCommand({command: 'TrackPomodoroSquashed', timer_id: squashCommand.timer_id, started_at: cmd.started_at, squashed_at: squashCommand.squashed_at})
+        sendCommand({command: 'TrackPomodoroSquashed', timer_id: squashCommand.timer_id, started_at: cmd.started_at, squashed_at: squashCommand.squashed_at, description: cmd.description})
       } else {
         const completed_at = moment(cmd.started_at).add(settings.duration, 'ms')
-        sendCommand({command: 'TrackPomodoroCompleted', timer_id: cmd.timer_id, started_at: cmd.started_at, completed_at: completed_at})  
+        sendCommand({command: 'TrackPomodoroCompleted', timer_id: cmd.timer_id, started_at: cmd.started_at, completed_at: completed_at, description: cmd.description})  
       }
     })
   offlineCommands.length = 0
