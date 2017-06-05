@@ -58,6 +58,7 @@
 ## SCHEDULE DAY-2
 #### Q&A [1P] []
 #### PROJECTION SERVER [GL] [2P] [9:00-10:00]
+   - `login`
    - `pin-projection`
        - show how projections work
        - show pin projection with all callbacks implemented
@@ -67,12 +68,11 @@
        - show pomodori projection tests
    - `projections`
 #### UI AND RESUME CLIENT [EDB] [2P] [10:00-11:00]
+   - `login`
    - resume pomodoro from projection
-   - `resume`
-   - pomodoro list
-   - user list (exercise?)
-   - tag list (exercise?)
-   - `projections`
+   - `resume-ticking-pomodoro`
+   - `pomodori-of-the-day`
+   - `user-list` (exercise)
 #### BREAK ~20’
 #### SHARED-POMODORI SERVER [GL] [2P] [11:00-12:00]
    - `work-on-shared`
@@ -86,7 +86,9 @@
    - Parse description to extract and collect tags (#)
    - Prepare projection tags-num of pomodoro
 #### TAG-CLIENT [EDB][2P] [15:30-16:30] (Exercise)
+   - `work-on-tags`
    - Add tags projection 
+   - `tags`
 #### BREAK ~ 20min
 #### TRACK-POMODORO-COMPLETED SERVER + CLIENT [GL+EDB] [1P] [17:00-17:30]
    - `work-on-track`
@@ -96,3 +98,64 @@
    - `track`
 #### DEPLOY [GL + EDB] [1P] [17:30-1800] 
    - `master`
+
+## Branch list
+
+SERVER
+* start-here
+* work-on-ping
+* ping
+* work-on-start-pomodoro
+* start-pomodoro
+* work-on-squash-pomodoro (exercise + tests)
+* squash-pomodoro
+
+CLIENT
+* start-here
+* work-on-ping
+* ping
+* work-on-start-pomodoro
+* start-pomodoro
+* start-pomodoro-flux
+* squash-pomodoro
+
+SERVER
+* login (show)
+* ping-projection (show)
+* work-on-latest-pomodori-projection
+* latest-pomodori-projection
+* work-on-pomodori-projection
+* pomodori-projection (exercise)
+
+CLIENT
+* login
+* resume-ticking-pomodoro
+* pomodori-of-the-day
+* user-list (exercise?)
+
+SERVER
+* work-on-shared
+* shared
+
+CLIENT
+* work-on-shared
+* shared
+
+SERVER
+* work-on-tags
+* tags (exercise + tests)
+
+CLIENT
+* work-on-tags
+* tags (exercise)
+
+SERVER
+* work-on-track
+* track
+
+CLIENT
+* work-on-track
+* track
+
+ALL
+* deploy
