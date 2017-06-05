@@ -32,9 +32,6 @@ class MainContainer extends React.Component {
   handleSquash() {
     timerActions.squash(this.props.timer_id, this.props.pomodoro_id)
   }
-  handleToggleUser(user) {
-    usersActions.toggleSelectedUsers(user)
-  }
   handleLogin(username) {
     usersActions.login(username)
   }
