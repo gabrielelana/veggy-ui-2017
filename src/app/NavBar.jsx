@@ -12,8 +12,8 @@ class NavBar extends React.Component {
     window.addEventListener("online", this.setOnline)
   }
   componentWillUnmount() {
-    window.removeEventListener(this.setOnline)
-    window.removeEventListener(this.setOffline)
+    window.removeEventListener("offline", this.setOffline)
+    window.removeEventListener("online", this.setOnline)
   }
   setOnline() {
     this.setState({connectionStatusClass: 'fa fa-link'})
