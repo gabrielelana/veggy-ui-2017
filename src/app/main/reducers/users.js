@@ -4,7 +4,9 @@ import * as Action from '../action'
 
 export default buildReducer({
   [Action.UsersLoaded]: (state, action) => { 
-    return {users:R.map(u => ({user_id: u.user_id, username: u.username, timer_id: u.timer_id}), action.payload)}
+    const filterFn = R.reject(u => u.user_id === state.user_id)
+    const mapperFn = R.map(u => ({user_id: u.user_id, username: u.username, timer_id: u.timer_id}))
+    return { users: R.compose(filterFn, mapperFn)(action.payload) }
   },
   [Action.SelectedUsersChanged]: (state, action) => {
     return {

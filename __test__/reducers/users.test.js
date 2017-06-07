@@ -11,7 +11,7 @@ describe('Users reducer', () => {
       {user_id: '3', name: 'ste'},
       {user_id: '4', name: 'mel'},
     ]})
-    expect(3).toEqual(state.users.length)
+    expect(state.users.length).toEqual(3)
     expect(state.users.find(u => u.user_id === '1')).not.toBeDefined()
   })
 
