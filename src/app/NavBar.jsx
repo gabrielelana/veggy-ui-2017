@@ -23,19 +23,19 @@ class NavBar extends React.Component {
   }
   render(){
     return (
-      <nav className="nav">
-        <div className="nav-left">
-          <a className="nav-item" href="#">
-            <h2 className="title is-2">Veggy</h2>
+      <nav className="navbar is-primary">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="#">
+            <h2 className="title is-2 has-text-white">VEGGY</h2>
           </a>
         </div>
-        <div className="nav-right nav-menu">
-          <a className="nav-item" href="#">
+        <div className="navbar-end">
+          <a className="navbar-item" href="#">
             <span className="icon">
               <i className={this.state.connectionStatusClass} />
             </span>
           </a>  
-          <a className="nav-item" href="#">
+          <a className="navbar-item" href="#">
             <span className="icon">
               <i className="fa fa-user"></i>
             </span>

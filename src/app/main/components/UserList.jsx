@@ -1,10 +1,10 @@
 const UserList = ({users, onToggleUser}) => {
   const userRows = users.map(u => (
-      <UserRow key={u.user_id} 
-        onSelect={() => onToggleUser(u.user_id)} 
-        selected={u.selected} 
-        username={u.username} />
-      ))
+    <UserRow key={u.user_id} 
+      onSelect={() => onToggleUser(u.user_id)} 
+      selected={u.selected} 
+      username={u.username} />
+  ))
     
   return (
     <div className="column">

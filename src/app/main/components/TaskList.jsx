@@ -14,7 +14,7 @@ const TaskList = ({timers}) => {
           </tr>
         </thead>
         <tbody>
-         {rows}
+          {rows}
         </tbody>
       </table>
     </div>

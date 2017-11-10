@@ -1,4 +1,4 @@
-import R from 'ramda'
+import {pipe, filter, map} from 'ramda'
 import sendCommand from '../../sendCommand'
 import settings from 'settings'
 
@@ -7,7 +7,7 @@ const project_timer_id = u => (u.timer_id)
 
 const timerActions = {
   startPomodoro(timer_id, users, description) {
-    const selectedUsers = R.pipe(R.filter(selected), R.map(project_timer_id))(users)
+    const selectedUsers = pipe(filter(selected), map(project_timer_id))(users)
     var cmd = { command: 'StartPomodoro', duration: settings.duration, timer_id: timer_id, description: description }
     if (selectedUsers.length > 0) {
       cmd.command = 'StartSharedPomodoro'

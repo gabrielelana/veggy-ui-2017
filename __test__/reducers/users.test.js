@@ -1,4 +1,3 @@
-import R from 'ramda'
 import users from '../../src/app/main/reducers/users'
 import * as Action from '../../src/app/main/action'
 

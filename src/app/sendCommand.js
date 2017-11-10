@@ -1,6 +1,6 @@
 import request from 'superagent'
 import settings from 'settings'
-import R from 'ramda'
+import {find} from 'ramda'
 import moment from 'moment'
 import {startOffLinePomodoro, squashOffLinePomodoro, isTicking} from './offLineActions'
 import Action from './main/action'
@@ -57,7 +57,7 @@ function sendOfflineCommands() {
   offlineCommands
     .filter(cmd => cmd.command === 'StartPomodoro')
     .forEach(cmd => {
-      const squashCommand = R.find(c => c.command === 'SquashPomodoro' && c.pomodoro_id === cmd.pomodoro_id)(offlineCommands)
+      const squashCommand = find(c => c.command === 'SquashPomodoro' && c.pomodoro_id === cmd.pomodoro_id)(offlineCommands)
       if (squashCommand){
         sendCommand({command: 'TrackPomodoroSquashed', timer_id: squashCommand.timer_id, started_at: cmd.started_at, squashed_at: squashCommand.squashed_at})
       } else {
